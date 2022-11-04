@@ -4,7 +4,7 @@ let selectFrom = document.querySelector("#selectFrom").options
 let selectTo = document.querySelector("#selectTo").options
 
 let conversion = {
-    meter : [1, 1000, 0.01, 0.001, 1609.34, 0.9144, 0.3048, 0.0256, 0.000539957],
+    meter : [1, 0.001, 100, 1000, 0.000621371, 1.09361, 3.28084, 39.3701, 0.000539957],
     kilo : [1000, 1, 100000, 1e+6, 0.621, 1093.61, 3280.84, 39370.1, 0.539],
     centi : [0.01, 1e-5, 1, 10, 6.2137e-6, 0.0109, 0.0328, 0.393, 5.3996e-6],
     milli : [0.001, 1e-6, 0.1, 1, 6.2137e-7, 0.00109361, 0.00328084, 0.0393701, 5.39957095032e-7],
@@ -58,7 +58,7 @@ function chooseFrom(){
 function updateOptionTo(val) {
 
         for (i in val) {
-            selectTo[i].text = selectFrom[i].text+": " + input.value * val[i]
+            selectTo[i].text = selectFrom[i].text+": " + input.value * val[i].toFixed(5)
     }
 }
 
